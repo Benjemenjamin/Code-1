@@ -13,8 +13,9 @@ Merge: Merges a branch with another branch
 
 Task01.3  
 
-1.  
-delete the file from your repository and then add a . gitignore rule for it
-
-2.  
-
+1. delete the file from your repository and then add a . gitignore rule for it  
+2. Right-click the commit you want to revert and click Revert Changes in Commit  
+3. git clean  
+4. merge: integrates all commits of one branch with the targetbranch  
+   rebase: rewinds the commits from the feature branch and replays them on top of the latest commit from the target branch  
+   squash: combines all the individual commits from the feature branch into a single commit with a new commit message  
