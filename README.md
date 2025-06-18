@@ -1,3 +1,4 @@
 # Code-1
-BENGEBOI
-hallo
+What I learned:
+
+Different Coding languages have different grades of readability, ranking from high languages to low languages
