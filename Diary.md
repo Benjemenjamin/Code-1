@@ -1,4 +1,4 @@
-Task01.2
+Task01.2  
 4.  
 
 
@@ -9,3 +9,12 @@ Fetch: retrieves new work done by other people
 Pull:  used to fetch and download content from a remote repository and immediately update the local repository to match that content   
 Push: Use git push to push commits made on your local branch to a remote repository  
 Merge: Merges a branch with another branch  
+
+
+Task01.3  
+
+1.  
+delete the file from your repository and then add a . gitignore rule for it
+
+2.  
+
