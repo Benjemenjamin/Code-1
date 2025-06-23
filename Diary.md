@@ -22,6 +22,22 @@ Task01.3
 
 Task01.4  
 1. pushes changes  
-2.
+2.  
 3. branches for multiple people to work together  
-4. 
+4.   
+  
+Task02.1  
+1. HTML = Hypertext Mark-up Language  
+   creator: Tim Berner-Lee  
+   When: 1991  
+   Why: HTML is great for structuring documents  
+  
+   Origins of mark-up: GenCode made by William W. Tunnicliffe at a conference in 1967  
+  
+2. Syntax: Rules how to write Code  
+   Semantik: Meaning of the things you wrote  
+
+
+
+
+   
