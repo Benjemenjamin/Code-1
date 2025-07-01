@@ -1,3 +1,12 @@
-let a: number[] = [0,1,2,3,4,5,6]
+let b: number=100000000000000000
+let a: number=50000000000000000
 
-a[4] = [101,102,[103,"more"]]
+
+for (let i: number = b; i > 1; i/=2) {
+  if (i == 3)
+    continue;
+  if (i == a)
+    break;
+  console.log(i);
+}
+

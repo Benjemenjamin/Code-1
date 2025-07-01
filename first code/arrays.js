@@ -1,3 +1,10 @@
 "use strict";
-let a = [0, 1, 2, 3, 4, 5, 6];
-a[4] = [101, 102, [103, "more"]];
+let b = 100000000000000000;
+let a = 50000000000000000;
+for (let i = b; i > 1; i /= 2) {
+    if (i == 3)
+        continue;
+    if (i == a)
+        break;
+    console.log(i);
+}
