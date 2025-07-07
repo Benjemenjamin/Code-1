@@ -9,21 +9,6 @@
 //} else {
   //  console.log("x is not 4");
 
-//}
-let x: number = 2;
-
-switch (x) {
-    case 1:
-        console.log("Hello");
-        break;
-    case 2:
-        console.log("goodbe");
-        break;
-    default:
-        console.log("Hug");
-        break;
-}
-console.log("Done");
 
 
 

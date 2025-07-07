@@ -1,0 +1,49 @@
+"use strict";
+const NUM_BAllS = Number(prompt("How many balls do you want?"));
+const speed = Number(prompt("How fast should the balls be able to move?"));
+const BALL_SIZE = 6;
+const balls = [];
+function createBall() {
+    const el = document.createElement("span");
+    el.className = "ball";
+    document.body.appendChild(el);
+    const x = Math.random() * (window.innerWidth - BALL_SIZE);
+    const y = Math.random() * (window.innerHeight - BALL_SIZE);
+    let vx = (Math.random() - 0.5) * 2 * speed;
+    if (vx === 0)
+        vx = 1;
+    let vy = (Math.random() - 0.5) * 2 * speed;
+    if (vy === 0)
+        vy = 1;
+    //const vx = 3
+    //const vy = 10
+    return { element: el, x, y, vx, vy };
+}
+for (let i = 0; i < NUM_BAllS; i++) {
+    balls.push(createBall());
+}
+function animate() {
+    for (const ball of balls) {
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+        if (ball.x <= 0) {
+            ball.x = 0;
+            ball.vx *= -1;
+        }
+        else if (ball.x >= window.innerWidth - BALL_SIZE) {
+            ball.x = window.innerWidth - BALL_SIZE;
+            ball.vx *= -1;
+        }
+        if (ball.y <= 0) {
+            ball.y = 0;
+            ball.vy *= -1;
+        }
+        else if (ball.y >= window.innerHeight - BALL_SIZE) {
+            ball.y = window.innerHeight - BALL_SIZE;
+            ball.vy *= -1;
+        }
+        ball.element.style.transform = `matrix(1,0,0,1,${ball.x},${ball.y})`;
+    }
+    requestAnimationFrame(animate);
+}
+animate();
