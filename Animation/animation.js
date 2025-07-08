@@ -7,11 +7,13 @@ let timePreviousFrame = Date.now();
 const balls = [];
 function handleLoad() {
     document.body.addEventListener("click", handlerClick);
+    createBall();
     animate();
 }
 function createBall() {
     const el = document.createElement("span");
     el.className = "ball";
+    el.style.backgroundColor = getRandomColor();
     document.body.appendChild(el);
     const timeCurrent = Date.now();
     let timeDelta = timeCurrent - timePreviousFrame;
@@ -31,7 +33,12 @@ function createBall() {
 for (let i = 0; i < NUM_BAllS; i++) {
     balls.push(createBall());
 }
+function getRandomColor() {
+    const hue = Math.floor(Math.random() * 360);
+    return `hsl(${hue}, 70%, 80%)`; // HSL: Farbton, Sättigung, Helligkeit
+}
 function animate() {
+    checkCollisions();
     for (const ball of balls) {
         ball.x += ball.vx;
         ball.y += ball.vy;
@@ -51,9 +58,35 @@ function animate() {
             ball.y = window.innerHeight - BALL_SIZE;
             ball.vy *= -1;
         }
-        ball.element.style.transform = `matrix(2,0,0,2,${ball.x},${ball.y})`;
+        ball.element.style.transform = `matrix(1,0,0,1,${ball.x},${ball.y})`;
     }
     requestAnimationFrame(animate);
+}
+update();
+function update() {
+    animate();
+}
+function checkCollisions() {
+    for (let i = 0; i < balls.length; i++) {
+        for (let j = i + 1; j < balls.length; j++) {
+            const a = balls[i];
+            const b = balls[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < BALL_SIZE) {
+                console.log("Collision");
+                a.element.remove();
+                b.element.remove();
+                balls.splice(balls.indexOf(a), 1);
+                balls.splice(balls.indexOf(b), 1);
+                //a.vx *= -1;
+                //a.vy *= -1;
+                //b.vx *= -1;
+                //b.vy *= -1;
+            }
+        }
+    }
 }
 function handlerClick(_event) {
     console.log("It worked");
@@ -66,4 +99,3 @@ function handlerClick(_event) {
         }
     }
 }
-document.body.addEventListener("click", handlerClick);
