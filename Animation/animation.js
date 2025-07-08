@@ -2,7 +2,7 @@
 window.addEventListener("load", handleLoad);
 const NUM_BAllS = Number(prompt("How many balls do you want?"));
 const speed = Number(prompt("How fast should the balls be able to move?"));
-const BALL_SIZE = 6;
+const BALL_SIZE = 40;
 let timePreviousFrame = Date.now();
 const balls = [];
 function handleLoad() {
